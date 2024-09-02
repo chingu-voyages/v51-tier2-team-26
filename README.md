@@ -27,6 +27,22 @@ Meeting Agenda templates (located in the `/docs` directory in this repo):
 - Meeting - Sprint Retrospective, Review, and Planning --> ./docs/meeting-sprint_retrospective_review_and_planning.docx
 - Meeting - Sprint Open Topic Session --> ./docs/meeting-sprint_open_topic_session.docx
 
+# (project title)
+
+# Overview
+
+(add project overview here)
+
+# Running the Project
+
+(add live version here)
+
+(add local instruction here)
+
+# Dependencies
+
+(add project dependencies here)
+
 ## Our Team
 
 Everyone on your team should add their name along with a link to their GitHub
