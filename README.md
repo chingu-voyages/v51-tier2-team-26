@@ -59,5 +59,5 @@ coding!
 
 - Ken Ellingsen: [GitHub](https://github.com/ken-ellingsen) / [LinkedIn](https://www.linkedin.com/in/ken-ellingsen/)
 - Anu Altankhuyag: [GitHub](https://github.com/lunargravity) / [LinkedIn](https://www.linkedin.com/in/anu-altankhuyag/)
-- Developer name #3: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
+- Lauren Gainsbrook: [GitHub](https://github.com/lgainsbrook) / [LinkedIn](https://linkedin.com/in/lauren-gainsbrook)
 - Developer name #4: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
