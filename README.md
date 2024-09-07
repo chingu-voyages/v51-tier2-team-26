@@ -52,7 +52,7 @@ coding!
 
 ### Scrum Masters
 
-- Scrum Master name #1: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
+- Scrum Master Marie #1: [GitHub](https://github.com/Mari618) / [LinkedIn](https://www.linkedin.com/in/m-joseph-)
 - Scrum Master Kirk Black #2: [GitHub](https://github.com/kirkblackjr) / [LinkedIn](https://linkedin.com/in/kirk-black-in-tech)
 
 ### Developers
