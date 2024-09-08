@@ -60,4 +60,4 @@ coding!
 - Ken Ellingsen: [GitHub](https://github.com/ken-ellingsen) / [LinkedIn](https://www.linkedin.com/in/ken-ellingsen/)
 - Anu Altankhuyag: [GitHub](https://github.com/lunargravity) / [LinkedIn](https://www.linkedin.com/in/anu-altankhuyag/)
 - Lauren Gainsbrook: [GitHub](https://github.com/lgainsbrook) / [LinkedIn](https://linkedin.com/in/lauren-gainsbrook)
-- Hector Garcia: [GitHub](https://github.com/chingu-voyages/v51-tier2-team-26.git) / [LinkedIn](https://www.linkedin.com/in/hectorgarcia01/)
+- Hector Garcia: [GitHub](https://github.com/hectorgarcia07) / [LinkedIn](https://www.linkedin.com/in/hectorgarcia01/)
