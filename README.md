@@ -45,12 +45,12 @@ coding!
 
 ### Scrum Masters
 
-- Scrum Master name #1: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
-- Scrum Master name #2: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
+- Scrum Master Marie Joseph #1: [GitHub](https://github.com/Mari618) / [LinkedIn](https://www.linkedin.com/in/m-joseph-)
+- Scrum Master Kirk Black #2: [GitHub](https://github.com/kirkblackjr) / [LinkedIn](https://linkedin.com/in/kirk-black-in-tech)
 
 ### Developers
 
 - Ken Ellingsen: [GitHub](https://github.com/ken-ellingsen) / [LinkedIn](https://www.linkedin.com/in/ken-ellingsen/)
 - Anu Altankhuyag: [GitHub](https://github.com/lunargravity) / [LinkedIn](https://www.linkedin.com/in/anu-altankhuyag/)
-- Developer name #3: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
-- Developer name #4: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
+- Lauren Gainsbrook: [GitHub](https://github.com/lgainsbrook) / [LinkedIn](https://linkedin.com/in/lauren-gainsbrook)
+- Hector Garcia: [GitHub](https://github.com/hectorgarcia07) / [LinkedIn](https://www.linkedin.com/in/hectorgarcia01/)
