@@ -1,0 +1,81 @@
+:root{
+    --main-dark: #0F861C;
+    --main-light: #76C57F;
+}
+
+.footer {
+    background: var(--main-dark);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.footer__links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer__link-div {
+    margin-bottom: 25px;
+}
+
+.footer__copyright {
+    padding: 30px 0 10px 0;
+}
+
+.footer img {
+    width: 20%;
+    height: auto;
+    margin: 0 10px;
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+.footer a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/******************** Tablet Styling ********************/
+@media only screen and (min-width: 768px) {
+    .footer__links {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .footer__link-div {
+        width: 33%;
+    }
+
+    .footer__terms-and-privacy {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer__privacy-terms {
+        margin: 0;
+    }
+
+    .footer img {
+        width: 15%;
+        margin: 0 20px;
+    }
+}
+
+/******************** Destop Styling ********************/
+@media only screen and (min-width: 1200px) {
+    .footer__privacy-terms {
+            margin: 20px 0;
+        }
+    .footer img {
+            width: 12%;
+            margin: 0 30px;
+        }
+}
