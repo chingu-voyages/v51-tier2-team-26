@@ -1,12 +1,21 @@
 import PropTypes from 'prop-types';
-import { Grid2, TextField } from '@mui/material';
+import { FormControl, TextField } from '@mui/material';
+import Grid from '@mui/material/Grid2';
 
 export default function ParticipantInput({ name, contribution }) {
   return (
-    <Grid2>
-      <TextField label='Name of Participant'>{name}</TextField>
-      <TextField label='% of Contribution'>{contribution}</TextField>
-    </Grid2>
+    <Grid container spacing={2}>
+      <Grid item xs={6}>
+        <FormControl fullWidth>
+          <TextField label='Name of Participant' fullWidth value={name} />
+        </FormControl>
+      </Grid>
+      <Grid item xs={6}>
+        <FormControl fullWidth>
+          <TextField label='% of Contribution' fullWidth value={contribution} />
+        </FormControl>
+      </Grid>
+    </Grid>
   );
 }
 

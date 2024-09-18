@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Grid2, Divider, IconButton } from '@mui/material';
+import { Divider, IconButton } from '@mui/material';
+import Grid from '@mui/material/Grid2';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import ParticipantInput from './ParticipantInput';
 
@@ -9,11 +10,11 @@ export default function ParticipantsSection() {
   ]);
 
   return (
-    <Grid2
+    <Grid
       container
       spacing={2}
       sx={{ display: 'flex', flexDirection: 'column', paddingX: '30px' }}>
-      <Grid2
+      <Grid
         container
         alignItems='center'
         sx={{ display: 'flex', flexDirection: 'row', gap: 2 }}>
@@ -25,8 +26,8 @@ export default function ParticipantsSection() {
         <IconButton aria-label='add participant' size='large'>
           <AddCircleIcon fontSize='inherit' />
         </IconButton>
-      </Grid2>
+      </Grid>
       <ParticipantInput name='default' contribution='10' />
-    </Grid2>
+    </Grid>
   );
 }

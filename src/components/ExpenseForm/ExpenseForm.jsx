@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import dayjs from 'dayjs';
-import { Backdrop, Box, Divider, Grid2 } from '@mui/material';
+import { Backdrop, Box, Divider } from '@mui/material';
+import Grid from '@mui/material/Grid2';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import FileUploadButton from './Fields/FileUploadButton';
@@ -80,14 +81,14 @@ export default function ExpenseForm() {
             width: '0.75',
             margin: 'auto',
           }}>
-          <Grid2
+          <Grid
             container
             spacing={2}
             sx={{ display: 'flex', flexDirection: 'column', paddingX: '30px' }}>
             <Divider textAlign='left' sx={{ color: '#040504', marginY: 2 }}>
               Expense Form
             </Divider>
-            <Grid2 container sx={{ display: 'flex', flexDirection: 'column' }}>
+            <Grid container sx={{ display: 'flex', flexDirection: 'column' }}>
               <InputField
                 name='name'
                 label='Name of Expense'
@@ -124,15 +125,15 @@ export default function ExpenseForm() {
                 multiline
                 rows={5.2}
               />
-            </Grid2>
-            <Grid2 fullWidth>
+            </Grid>
+            <Grid fullWidth>
               <DatePickerField
                 value={dayjs(formData.date)}
                 onChange={handleDateChange}
               />
-            </Grid2>
+            </Grid>
             <FileUploadButton />
-          </Grid2>
+          </Grid>
           <ParticipantsSection />
         </Box>
       </Backdrop>
