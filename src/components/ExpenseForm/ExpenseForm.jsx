@@ -5,7 +5,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import FileUploadButton from './FileUploadButton';
 import InputField from './InputField';
-import SelectField from './SelectField';
+import CategorySelectField from './CategorySelectField';
 import DatePickerField from './DatePickerField';
 
 export default function ExpenseForm() {
@@ -41,51 +41,51 @@ export default function ExpenseForm() {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <Box component='form' onSubmit={handleSubmit} noValidate>
-        <Divider textAlign='left'>Expense Form</Divider>
+        <Divider textAlign='left' sx={{ marginY: 2 }}>
+          Expense Form
+        </Divider>
         <Grid2
           container
           spacing={2}
           sx={{ display: 'flex', flexDirection: 'column' }}>
-          <Grid2 container xs={12}>
-            <Grid2 container sx={{ display: 'flex', flexDirection: 'column' }}>
-              <InputField
-                name='name'
-                label='Name of Expense'
-                value={formData.name}
-                error={!formData.name}
-                helperText={!formData.name ? 'Name is required' : ''}
-                onChange={handleChange}
-              />
-              <InputField
-                name='amount'
-                label='Amount'
-                value={formData.amount}
-                error={!formData.amount}
-                helperText={!formData.amount ? 'Amount is required' : ''}
-                onChange={handleChange}
-              />
-              <SelectField
-                name='category'
-                label='Category'
-                value={formData.category}
-                error={!formData.category}
-                onChange={handleChange}
-              />
-              <InputField
-                name='description'
-                label='Description'
-                value={formData.description}
-                error={!formData.description}
-                helperText={
-                  !formData.description ? 'Description is required' : ''
-                }
-                onChange={handleChange}
-                multiline
-                rows={5.2}
-              />
-            </Grid2>
+          <Grid2 container sx={{ display: 'flex', flexDirection: 'column' }}>
+            <InputField
+              name='name'
+              label='Name of Expense'
+              value={formData.name}
+              error={!formData.name}
+              helperText={!formData.name ? 'Name is required' : ''}
+              onChange={handleChange}
+            />
+            <InputField
+              name='amount'
+              label='Amount'
+              value={formData.amount}
+              error={!formData.amount}
+              helperText={!formData.amount ? 'Amount is required' : ''}
+              onChange={handleChange}
+            />
+            <CategorySelectField
+              name='category'
+              label='Category'
+              value={formData.category}
+              error={!formData.category}
+              onChange={handleChange}
+            />
+            <InputField
+              name='description'
+              label='Description'
+              value={formData.description}
+              error={!formData.description}
+              helperText={
+                !formData.description ? 'Description is required' : ''
+              }
+              onChange={handleChange}
+              multiline
+              rows={5.2}
+            />
           </Grid2>
-          <Grid2>
+          <Grid2 fullWidth>
             <DatePickerField
               value={dayjs(formData.date)}
               onChange={handleDateChange}
@@ -93,7 +93,9 @@ export default function ExpenseForm() {
           </Grid2>
           <FileUploadButton />
         </Grid2>
-        <Divider textAlign='left'>Participants</Divider>
+        <Divider textAlign='left' sx={{ marginY: 2 }}>
+          Participants
+        </Divider>
       </Box>
     </LocalizationProvider>
   );

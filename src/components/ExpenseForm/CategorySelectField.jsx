@@ -1,6 +1,12 @@
 import { FormControl, InputLabel, Select, FormHelperText } from '@mui/material';
 
-export default function SelectField({ name, label, value, error, onChange }) {
+export default function CategorySelectField({
+  name,
+  label,
+  value,
+  error,
+  onChange,
+}) {
   return (
     <FormControl fullWidth error={error} size='small'>
       <InputLabel htmlFor={name}>{label}</InputLabel>
