@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import dayjs from 'dayjs';
-import { Backdrop, Box, IconButton, Divider, Grid2 } from '@mui/material';
+import { Backdrop, Box, Divider, Grid2 } from '@mui/material';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import FileUploadButton from './FileUploadButton';
-import InputField from './InputField';
-import CategorySelectField from './CategorySelectField';
-import DatePickerField from './DatePickerField';
-import AddCircleIcon from '@mui/icons-material/AddCircle';
-import AmountInputField from './AmountInputField';
+import FileUploadButton from './Fields/FileUploadButton';
+import InputField from './Fields/InputField';
+import CategorySelectField from './Fields/CategorySelectField';
+import DatePickerField from './Fields/DatePickerField';
+import AmountInputField from './Fields/AmountInputField';
+import ParticipantsSection from './ParticipantsSection/ParticipantsSection';
 
 export default function ExpenseForm() {
   const [formData, setFormData] = useState({
@@ -133,25 +133,7 @@ export default function ExpenseForm() {
             </Grid2>
             <FileUploadButton />
           </Grid2>
-          <Grid2
-            container
-            spacing={2}
-            sx={{ display: 'flex', flexDirection: 'column', paddingX: '30px' }}>
-            <Grid2
-              container
-              alignItems='center' // Align items vertically in the center
-              sx={{ display: 'flex', flexDirection: 'row', gap: 2 }} // Use gap to manage spacing between items
-            >
-              <Divider
-                textAlign='left'
-                sx={{ color: '#040504', marginY: 2, flexGrow: 1 }}>
-                Participants
-              </Divider>
-              <IconButton aria-label='add participant' size='large'>
-                <AddCircleIcon fontSize='inherit' />
-              </IconButton>
-            </Grid2>
-          </Grid2>
+          <ParticipantsSection />
         </Box>
       </Backdrop>
     </LocalizationProvider>
