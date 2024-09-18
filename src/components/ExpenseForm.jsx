@@ -1,5 +1,14 @@
 import { useState } from 'react';
-import { Box, FormControl, FormLabel, Grid2, TextField } from '@mui/material';
+import {
+  Box,
+  FormControl,
+  FormHelperText,
+  Grid2,
+  MenuItem,
+  TextField,
+  Select,
+  InputLabel,
+} from '@mui/material';
 
 export default function ExpenseForm() {
   const [formData, setFormData] = useState({
@@ -27,36 +36,79 @@ export default function ExpenseForm() {
         container
         spacing={2}
         sx={{ display: 'flex', flexDirection: 'column' }}>
-        <Grid2 xs={12}>
-          <FormControl key='name' fullWidth>
-            <TextField
-              fullWidth
-              error={!formData.name}
-              helperText={!formData.name ? 'Name is required' : ''}
-              label='Name of Expense'
-              name='name'
-              onChange={handleChange}
-              required
-              value={formData.name}
-            />
-          </FormControl>
+        <Grid2 container xs={12}>
+          <Grid2 container sx={{ display: 'flex', flexDirection: 'column' }}>
+            <Grid2 xs={6}>
+              <FormControl key='name' fullWidth>
+                <TextField
+                  fullWidth
+                  error={!formData.name}
+                  helperText={!formData.name ? 'Name is required' : ''}
+                  label='Name of Expense'
+                  name='name'
+                  onChange={handleChange}
+                  required
+                  value={formData.name}
+                />
+              </FormControl>
+            </Grid2>
+            <Grid2 xs={6}>
+              <FormControl key='amount' fullWidth>
+                <TextField
+                  fullWidth
+                  error={!formData.amount}
+                  helperText={!formData.amount ? 'Amount is required' : ''}
+                  label='Amount'
+                  name='amount'
+                  onChange={handleChange}
+                  required
+                  value={formData.amount}
+                />
+              </FormControl>
+            </Grid2>
+          </Grid2>
+          <Grid2 xs={6}>
+            <FormControl key='description' fullWidth>
+              <TextField
+                fullWidth
+                error={!formData.description}
+                helperText={
+                  !formData.description ? 'Description is required' : ''
+                }
+                label='Description'
+                multiline
+                name='description'
+                onChange={handleChange}
+                required
+                rows={6}
+                value={formData.description}
+              />
+            </FormControl>
+          </Grid2>
         </Grid2>
-        <Grid2 xs={12}>
-          <FormControl key='description' fullWidth>
-            <TextField
-              fullWidth
-              error={!formData.description}
-              helperText={
-                !formData.description ? 'Description is required' : ''
-              }
-              label='Description'
-              multiline
-              name='description'
-              onChange={handleChange}
-              required
-              value={formData.description}
-            />
-          </FormControl>
+        <Grid2 container xs={12}>
+          <Grid2 xs={12}>
+            <FormControl fullWidth error={!formData.category}>
+              <InputLabel htmlFor='category'>Category</InputLabel>
+              <Select
+                native
+                label='Category'
+                id='category'
+                name='category'
+                value={formData.category}
+                onChange={handleChange}
+                required
+                fullWidth>
+                <option aria-label='None' value='' />
+                <option value='Dining'>Dining</option>
+                <option value='Groceries'>Groceries</option>
+                {/* Add more categories as needed */}
+              </Select>
+              {!formData.category && (
+                <FormHelperText>Category is required</FormHelperText>
+              )}
+            </FormControl>
+          </Grid2>
         </Grid2>
       </Grid2>
     </Box>
