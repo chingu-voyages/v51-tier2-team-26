@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { FormControl, InputLabel, Select, FormHelperText } from '@mui/material';
 
 export default function CategorySelectField({
@@ -28,3 +29,15 @@ export default function CategorySelectField({
     </FormControl>
   );
 }
+
+CategorySelectField.propTypes = {
+  name: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  error: PropTypes.bool,
+  onChange: PropTypes.func.isRequired,
+};
+
+CategorySelectField.defaultProps = {
+  error: false,
+};
