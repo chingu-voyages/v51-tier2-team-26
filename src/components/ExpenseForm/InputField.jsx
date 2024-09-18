@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { FormControl, TextField } from '@mui/material';
 
 export default function InputField({
@@ -30,3 +31,23 @@ export default function InputField({
     </FormControl>
   );
 }
+
+InputField.propTypes = {
+  name: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
+  error: PropTypes.bool,
+  helperText: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+  multiline: PropTypes.bool,
+  rows: PropTypes.number,
+};
+
+InputField.defaultProps = {
+  placeholder: '',
+  error: false,
+  helperText: '',
+  multiline: false,
+  rows: 1,
+};
