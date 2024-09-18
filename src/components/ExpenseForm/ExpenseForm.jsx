@@ -8,6 +8,7 @@ import InputField from './InputField';
 import CategorySelectField from './CategorySelectField';
 import DatePickerField from './DatePickerField';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
+import AmountInputField from './AmountInputField';
 
 export default function ExpenseForm() {
   const [formData, setFormData] = useState({
@@ -96,14 +97,12 @@ export default function ExpenseForm() {
                 helperText={isFieldError('name') ? 'Name is required' : ''}
                 onChange={handleChange}
               />
-              <InputField
+              <AmountInputField
                 name='amount'
-                label='Amount'
                 value={formData.amount}
-                placeholder='ex. $25.99'
+                onChange={handleChange}
                 error={isFieldError('amount')}
                 helperText={isFieldError('amount') ? 'Amount is required' : ''}
-                onChange={handleChange}
               />
               <CategorySelectField
                 name='category'
