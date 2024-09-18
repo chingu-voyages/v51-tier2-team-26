@@ -1,17 +1,21 @@
-import { useState, forwardRef } from 'react';
+import { useState } from 'react';
+import PropTypes from 'prop-types';
 import { NumericFormat } from 'react-number-format';
 import TextField from '@mui/material/TextField';
 
-const NumericFormatCustom = forwardRef(function NumericFormatCustom(
-  props,
-  ref
-) {
-  const { onChange, ...other } = props;
+function NumericFormatCustom(props) {
+  const { inputRef, onChange, ...other } = props;
 
   return (
     <NumericFormat
       {...other}
-      getInputRef={ref}
+      getInputRef={inputRef}
+      thousandSeparator
+      valueIsNumericString
+      prefix='$'
+      decimalScale={2}
+      fixedDecimalScale
+      allowNegative={false}
       onValueChange={(values) => {
         onChange({
           target: {
@@ -20,26 +24,21 @@ const NumericFormatCustom = forwardRef(function NumericFormatCustom(
           },
         });
       }}
-      thousandSeparator
-      valueIsNumericString
-      prefix='$'
-      decimalScale={2}
-      fixedDecimalScale={true}
-      allowNegative={false}
     />
   );
-});
+}
+
+NumericFormatCustom.propTypes = {
+  inputRef: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+};
 
 export default function FormattedInputs() {
-  const [value, setValue] = useState({
-    amount: '',
-  });
+  const [value, setValue] = useState('');
 
   const handleChange = (event) => {
-    setValue({
-      ...value,
-      [event.target.name]: event.target.value,
-    });
+    setValue(event.target.value);
   };
 
   return (
@@ -47,10 +46,9 @@ export default function FormattedInputs() {
       label='Total Amount'
       required
       placeholder='$25.99'
-      value={value.amount}
+      value={value}
       onChange={handleChange}
       name='amount'
-      id='formatted-amount-input'
       slotProps={{
         input: {
           inputComponent: NumericFormatCustom,
