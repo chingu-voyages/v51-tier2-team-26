@@ -4,6 +4,7 @@ export default function InputField({
   name,
   label,
   value,
+  placeholder,
   error,
   helperText,
   onChange,
@@ -19,6 +20,7 @@ export default function InputField({
         label={label}
         name={name}
         value={value}
+        placeholder={placeholder}
         onChange={onChange}
         required
         size='small'

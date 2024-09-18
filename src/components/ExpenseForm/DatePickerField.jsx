@@ -8,7 +8,7 @@ export default function DatePickerField({ value, onChange }) {
         label='Date'
         value={value}
         onChange={onChange}
-        renderInput={(params) => <TextField {...params} size='small' />}
+        renderInput={(params) => <TextField {...params} />}
       />
     </FormControl>
   );
