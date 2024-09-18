@@ -48,6 +48,7 @@ export default function ExpenseForm() {
                   name='name'
                   onChange={handleChange}
                   required
+                  size='small'
                   value={formData.name}
                 />
               </FormControl>
@@ -62,6 +63,7 @@ export default function ExpenseForm() {
                   name='amount'
                   onChange={handleChange}
                   required
+                  size='small'
                   value={formData.amount}
                 />
               </FormControl>
@@ -80,7 +82,7 @@ export default function ExpenseForm() {
                 name='description'
                 onChange={handleChange}
                 required
-                rows={6}
+                rows={4}
                 value={formData.description}
               />
             </FormControl>
@@ -88,13 +90,17 @@ export default function ExpenseForm() {
         </Grid2>
         <Grid2 container xs={12}>
           <Grid2 xs={12}>
-            <FormControl fullWidth error={!formData.category}>
+            <FormControl
+              fullWidth
+              error={!formData.category}
+              margin='normal'
+              size='small'>
               <InputLabel htmlFor='category'>Category</InputLabel>
               <Select
                 native
-                label='Category'
                 id='category'
                 name='category'
+                label='category'
                 value={formData.category}
                 onChange={handleChange}
                 required
