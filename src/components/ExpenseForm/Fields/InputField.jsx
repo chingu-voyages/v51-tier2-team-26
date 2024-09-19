@@ -43,11 +43,3 @@ InputField.propTypes = {
   multiline: PropTypes.bool,
   rows: PropTypes.number,
 };
-
-InputField.defaultProps = {
-  placeholder: '',
-  error: false,
-  helperText: '',
-  multiline: false,
-  rows: 1,
-};

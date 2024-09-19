@@ -1,59 +1,39 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types';
-import { NumericFormat } from 'react-number-format';
 import TextField from '@mui/material/TextField';
 
-function NumericFormatCustom(props) {
-  const { inputRef, onChange, ...other } = props;
-
-  return (
-    <NumericFormat
-      {...other}
-      getInputRef={inputRef}
-      thousandSeparator
-      valueIsNumericString
-      prefix='$'
-      decimalScale={2}
-      fixedDecimalScale
-      allowNegative={false}
-      onValueChange={(values) => {
-        onChange({
-          target: {
-            name: props.name,
-            value: values.value,
-          },
-        });
-      }}
-    />
-  );
-}
-
-NumericFormatCustom.propTypes = {
-  inputRef: PropTypes.func.isRequired,
-  onChange: PropTypes.func.isRequired,
-  name: PropTypes.string.isRequired,
-};
-
-export default function FormattedInputs() {
+export default function AmountInputField() {
   const [value, setValue] = useState('');
 
   const handleChange = (event) => {
-    setValue(event.target.value);
+    let inputValue = event.target.value;
+
+    inputValue = inputValue.replace(/[^0-9.,]/g, '');
+
+    // Restrict to only two decimal places
+    const parts = inputValue.split('.');
+    if (parts[1] && parts[1].length > 2) {
+      inputValue = parts[0] + '.' + parts[1].slice(0, 2);
+    }
+
+    // Format the number with commas
+    const formattedValue = parseFloat(inputValue)
+      ? Number(inputValue).toLocaleString('en-US', {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        })
+      : inputValue;
+
+    setValue(formattedValue);
   };
 
   return (
     <TextField
       label='Total Amount'
       required
-      placeholder='$25.99'
       value={value}
       onChange={handleChange}
-      name='amount'
-      slotProps={{
-        input: {
-          inputComponent: NumericFormatCustom,
-        },
-      }}
+      placeholder='$0.00'
+      fullWidth
     />
   );
 }

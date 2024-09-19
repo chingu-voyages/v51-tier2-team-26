@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import dayjs from 'dayjs';
-import { Backdrop, Box, Divider } from '@mui/material';
+import { Backdrop, Box, Divider, Button } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -135,6 +135,9 @@ export default function ExpenseForm() {
             <FileUploadButton />
           </Grid>
           <ParticipantsSection />
+          <Grid>
+            <Button type='submit'>Submit</Button>
+          </Grid>
         </Box>
       </Backdrop>
     </LocalizationProvider>

@@ -38,9 +38,7 @@ export default function CategorySelectField({
           <option value='Cleaning Supplies'>Cleaning Supplies</option>
           <option value='Toiletries'>Toiletries</option>
           <option value='Kitchen Supplies'>Kitchen Supplies</option>
-          <option value='Household Items (e.g., light bulbs, batteries)'>
-            Household Items (e.g., light bulbs, batteries)
-          </option>
+          <option value='Household Items '>Household Items</option>
         </optgroup>
 
         <optgroup label='Dining & Takeout'>
@@ -51,13 +49,9 @@ export default function CategorySelectField({
         </optgroup>
 
         <optgroup label='Transportation'>
-          <option value='Public Transportation (bus, subway)'>
-            Public Transportation (bus, subway)
-          </option>
+          <option value='Public Transportation'>Public Transportation </option>
           <option value='Gasoline'>Gasoline</option>
-          <option value='Ride-sharing (Uber, Lyft)'>
-            Ride-sharing (Uber, Lyft)
-          </option>
+          <option value='Ride-sharing'>Ride-sharing</option>
           <option value='Parking'>Parking</option>
           <option value='Car Maintenance'>Car Maintenance</option>
         </optgroup>
@@ -65,12 +59,8 @@ export default function CategorySelectField({
         <optgroup label='Entertainment & Recreation'>
           <option value='Movies & Concerts'>Movies & Concerts</option>
           <option value='Sports & Activities'>Sports & Activities</option>
-          <option value='Subscriptions (e.g., Netflix, Spotify)'>
-            Subscriptions (e.g., Netflix, Spotify)
-          </option>
-          <option value='Tickets (amusement parks, events)'>
-            Tickets (amusement parks, events)
-          </option>
+          <option value='Subscriptions'>Subscriptions</option>
+          <option value='Tickets '>Tickets</option>
         </optgroup>
 
         <optgroup label='Travel & Accommodation'>
@@ -99,15 +89,11 @@ export default function CategorySelectField({
         <optgroup label='Gifts & Special Occasions'>
           <option value='Birthday Gifts'>Birthday Gifts</option>
           <option value='Wedding Gifts'>Wedding Gifts</option>
-          <option value='Holidays (e.g., Christmas, Thanksgiving)'>
-            Holidays (e.g., Christmas, Thanksgiving)
-          </option>
+          <option value='Holidays'>Holidays</option>
         </optgroup>
 
         <optgroup label='Miscellaneous'>
-          <option value='Pet Expenses (food, grooming)'>
-            Pet Expenses (food, grooming)
-          </option>
+          <option value='Pet Expenses'>Pet Expenses</option>
           <option value='Childcare/Babysitting'>Childcare/Babysitting</option>
           <option value='Subscriptions/Apps'>Subscriptions/Apps</option>
           <option value='Donations'>Donations</option>
@@ -124,8 +110,4 @@ CategorySelectField.propTypes = {
   value: PropTypes.string.isRequired,
   error: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
-};
-
-CategorySelectField.defaultProps = {
-  error: false,
 };

@@ -27,7 +27,7 @@ export default function ParticipantsSection() {
           <AddCircleIcon fontSize='inherit' />
         </IconButton>
       </Grid>
-      <ParticipantInput name='default' contribution='10' />
+      <ParticipantInput name='default' contribution={Number('10')} />
     </Grid>
   );
 }
