@@ -19,6 +19,7 @@ Running project locally:
 - [React](https://react.dev/)
 - [Vite](https://vitejs.dev/)
 - [Font Awesome](https://fontawesome.com/)
+- [Material UI](https://mui.com/)
 
 ## Our Team
 
