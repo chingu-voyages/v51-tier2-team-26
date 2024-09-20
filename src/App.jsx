@@ -1,9 +1,10 @@
 import './App.css'
+import Footer from './components/Footer.jsx'
 
 function App() {
   return (
     <>
-      <h1>Divvy Up</h1>
+      <Footer />
     </>
   )
 }
