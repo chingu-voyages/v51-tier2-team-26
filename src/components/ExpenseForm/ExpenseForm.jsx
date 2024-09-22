@@ -135,8 +135,15 @@ export default function ExpenseForm() {
             <FileUploadButton />
           </Grid>
           <ParticipantsSection />
-          <Grid>
-            <Button type='submit'>Submit</Button>
+          <Grid
+            sx={{
+              display: 'flex',
+              justifyContent: 'flex-end',
+              padding: '30px',
+            }}>
+            <Button type='submit' sx={{ marginY: 2 }} variant='contained'>
+              Submit
+            </Button>
           </Grid>
         </Box>
       </Backdrop>
