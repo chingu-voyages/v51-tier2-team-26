@@ -31,7 +31,7 @@ function Copyright() {
 
 export default function Footer() {
     return(
-        <Box component='section' sx={{ textAlign: 'center', backgroundColor: '#3B3B3B', color: 'white', py: 2 }}>
+        <Box component='section' sx={{ textAlign: 'center', backgroundColor: 'whitesmoke', color: 'black', py: 2 }}>
             <Grid container justifyContent='center'>
                 <Grid size={3}>
                     <Typography variant='h6'>GitHub Repository</Typography>
