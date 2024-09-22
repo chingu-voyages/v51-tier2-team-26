@@ -5,10 +5,6 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 import ParticipantInput from './ParticipantInput';
 
 export default function ParticipantsSection() {
-  const [participants, setPartcipants] = useState([
-    { name: '', contribution: '' },
-  ]);
-
   return (
     <Grid
       container
