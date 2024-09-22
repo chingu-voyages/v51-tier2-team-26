@@ -8,7 +8,6 @@ import FileUploadButton from './Fields/FileUploadButton';
 import InputField from './Fields/InputField';
 import CategorySelectField from './Fields/CategorySelectField';
 import DatePickerField from './Fields/DatePickerField';
-import AmountInputField from './Fields/AmountInputField';
 import ParticipantsSection from './ParticipantsSection/ParticipantsSection';
 
 export default function ExpenseForm() {
@@ -36,6 +35,31 @@ export default function ExpenseForm() {
     setTouched((prevTouched) => ({
       ...prevTouched,
       [name]: true,
+    }));
+  };
+
+  const handleAmountChange = (e) => {
+    let inputValue = e.target.value;
+
+    inputValue = inputValue.replace(/[^0-9.,]/g, '');
+
+    // Restrict to only two decimal places
+    const parts = inputValue.split('.');
+    if (parts[1] && parts[1].length > 2) {
+      inputValue = parts[0] + '.' + parts[1].slice(0, 2);
+    }
+
+    // Format the number with commas
+    const formattedValue = parseFloat(inputValue)
+      ? Number(inputValue).toLocaleString('en-US', {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        })
+      : inputValue;
+
+    setFormData((prevData) => ({
+      ...prevData,
+      amount: formattedValue,
     }));
   };
 
@@ -98,12 +122,14 @@ export default function ExpenseForm() {
                 helperText={isFieldError('name') ? 'Name is required' : ''}
                 onChange={handleChange}
               />
-              <AmountInputField
+              <InputField
                 name='amount'
-                value={formData.amount}
-                onChange={handleChange}
+                label='Total Amount'
+                value={formData.value}
+                placeholder='$0.00'
                 error={isFieldError('amount')}
                 helperText={isFieldError('amount') ? 'Amount is required' : ''}
+                onChange={handleAmountChange}
               />
               <CategorySelectField
                 name='category'
