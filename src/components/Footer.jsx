@@ -12,7 +12,7 @@ const linkedin = <FontAwesomeIcon icon={faLinkedin} />
 const twitter = <FontAwesomeIcon icon={faTwitter} />
 
 const linkSX = {
-    "&:hover":{color:'#76C57F'},
+    "&:hover":{color:'#fb8500'},
     mx: 2,
     fontWeight: "regular"
 }
