@@ -7,7 +7,7 @@ export default function GroupDisplay( { group }) {
     // console.log(groupMembers);
     
     return(
-        <Box display='flex' alignItems='center' sx={{ "&:hover":{border: '3px solid #0F861C'}, color: 'black', backgroundColor:'white', width: 1, height: 150, mt: 2, p:2, boxSizing: 'border-box', border:'1px solid gray', borderRadius: 4 }}>
+        <Box display='flex' alignItems='center' sx={{ "&:hover":{border: '2px solid #fb8500'}, color: 'black', backgroundColor:'white', width: 1, height: 150, mt: 2, p:2, boxSizing: 'border-box', border:'1px solid gray', borderRadius: 4 }}>
             <Box sx={{ height: 115, width: 115, backgroundColor: '#0F861C', borderRadius: 3 }}>
                 <Typography variant='h1' sx={{ color: 'white', textAlign:'center' }}>{group.groupName[0]}</Typography>
             </Box>
