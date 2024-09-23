@@ -4,7 +4,7 @@ import logo from '../img/divvy-up-logo.png';
 
 export default function Header() {
     return(
-        <Box component='section' display='flex' justifyContent='space-between' alignItems='center' sx={{ backgroundColor: 'whitesmoke', color: 'black', px:5, py:3 }}>
+        <Box component='section' display='flex' justifyContent='space-between' alignItems='center' sx={{ backgroundColor: 'whitesmoke', color: 'black', px:6, py:3 }}>
             <img src={logo} alt='Divvy Up logo' height='100px' width='auto' />
             <Box display='flex'>
                 <Box component='span' 
