@@ -1,5 +1,6 @@
 import Box from '@mui/material/Box';
 import { Typography } from '@mui/material';
+import Button from '@mui/material/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 
@@ -7,8 +8,7 @@ export default function GroupCard() {
     const editIcon = <FontAwesomeIcon icon={faPenToSquare} />;
     
     return(
-        <Box> {/* Parent Container */}
-            {/* Group Details */}
+            // /**** Group Info ****/
             <Box display='flex' alignItems='center' 
                 sx={{ 
                     color: 'black',
@@ -22,7 +22,7 @@ export default function GroupCard() {
                     borderRadius: 4
                 }}
             >
-                {/* Group Image */}
+                {/*** Group Image ***/}
                 <Box 
                     sx={{ 
                         height: 115,
@@ -34,7 +34,7 @@ export default function GroupCard() {
                     <Typography variant='h1' sx={{ color: 'white', textAlign:'center' }}>T</Typography>
                 </Box>
                 {/* End Group Image */}
-                {/* Group Text Fields */}
+                {/*** Group Details ***/}
                 <Box 
                     sx={{
                         width: 1,
@@ -59,10 +59,13 @@ export default function GroupCard() {
                         </Box>
                     </Box>
                     <Box>Test Description</Box>
+                    <Box display='flex' justifyContent='space-between' alignItems='flex-end'>
+                        <Typography variant='b2'>Nancy, Jim, Franklin, Billy, Joe</Typography>
+                        <Button variant='contained' sx={{ backgroundColor:'#fb8500', textTransform:'none', fontWeight:'bold' }}>Add New Expense</Button>
+                    </Box>
                 </Box>
-                {/* End Group Text Fields */}
+                {/* End Group Details */}
             </Box>
-            {/* End Group Details */}
-        </Box>
+            // {/* End Group Info */}
     )
 }
