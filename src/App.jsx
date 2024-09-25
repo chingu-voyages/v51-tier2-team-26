@@ -1,6 +1,7 @@
 import './App.css'
 import Header from './components/Header.jsx'
 import Main from './components/Main.jsx'
+import ExpenseForm from './components/ExpenseForm/ExpenseForm';
 import Footer from './components/Footer.jsx'
 import { useState } from 'react';
 
@@ -18,8 +19,9 @@ function App() {
       <Header />
       <Main groups={groups} />
       <Footer />
+      <ExpenseForm />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
