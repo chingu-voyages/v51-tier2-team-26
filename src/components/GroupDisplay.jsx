@@ -1,13 +1,18 @@
 // import MemberDisplay from './MemberDisplay';
 import Box from '@mui/material/Box';
 import { Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 export default function GroupDisplay( { group }) {
     const groupMembers = [...group.groupMembers]
     // console.log(groupMembers);
     
     return(
-        <Box display='flex' alignItems='center' sx={{ "&:hover":{border: '3px solid #0F861C'}, color: 'black', backgroundColor:'white', width: 1, height: 150, mt: 2, p:2, boxSizing: 'border-box', border:'1px solid gray', borderRadius: 4 }}>
+        <Box component={Link} to={`expense-detail/${group.id}`} display='flex' alignItems='center' sx={{ "&:hover":{border: '3px solid #0F861C'}, color: 'black', 
+            backgroundColor:'white', width: 1, height: 150, mt: 2, p:2, boxSizing: 'border-box', border:'1px solid gray', borderRadius: 4, 
+            cursor: 'pointer'
+        } }
+        >
             <Box sx={{ height: 115, width: 115, backgroundColor: '#0F861C', borderRadius: 3 }}>
                 <Typography variant='h1' sx={{ color: 'white', textAlign:'center' }}>{group.groupName[0]}</Typography>
             </Box>
