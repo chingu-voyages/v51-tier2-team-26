@@ -1,6 +1,6 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import logo from '../img/divvy-up-logo.png';
+import logo from '../../img/divvy-up-logo.png';
 
 export default function Header() {
     return(
