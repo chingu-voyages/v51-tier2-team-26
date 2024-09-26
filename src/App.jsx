@@ -4,22 +4,18 @@ import Main from './components/Main.jsx'
 import ExpenseForm from './components/ExpenseForm/ExpenseForm';
 import Footer from './components/Footer.jsx'
 import { useState } from 'react';
-
-const testData = [
-  {'id': 1, 'groupName': "Test1", 'moneyOwed':100, 'description': "This is a test description.", 'groupMembers': ["Member 1", "Member 2"]},
-  {'id': 2, 'groupName': "Test2", 'moneyOwed':400, 'description': "This is another test description.", 'groupMembers': ["Member 3", "Member 4"]},
-  {'id': 3, 'groupName': "Test3", 'moneyOwed':400, 'description': "This is another test description.", 'groupMembers': ["Member 3", "Member 4"]}
-];
+import ExpenseDetail from './components/ExpenseDetail.jsx';
+import { useLoaderData } from 'react-router-dom';
 
 function App() {
+  const { testData } = useLoaderData()
   const [groups, setGroups] = useState([...testData]);
 
   return (
     <>
       <Header />
-      <Main groups={groups} />
+      <Main groups={testData} />
       <Footer />
-      <ExpenseForm />
     </>
   );
 }

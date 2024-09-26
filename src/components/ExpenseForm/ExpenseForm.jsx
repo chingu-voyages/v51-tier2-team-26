@@ -10,7 +10,7 @@ import CategorySelectField from './Fields/CategorySelectField';
 import DatePickerField from './Fields/DatePickerField';
 import ParticipantsSection from './ParticipantsSection/ParticipantsSection';
 
-export default function ExpenseForm() {
+export default function ExpenseForm({backDropState, toggleBackdrop}) {
   const [formData, setFormData] = useState({
     name: '',
     amount: '',
@@ -89,11 +89,12 @@ export default function ExpenseForm() {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <Backdrop
+        onClick={() => toggleBackdrop()}
         sx={{
           backgroundColor: 'rgba(117, 196, 126)',
           backdropFilter: 'blur(3px)',
         }}
-        open={true}>
+        open={backDropState}>
         <Box
           component='form'
           onSubmit={handleSubmit}
