@@ -1,3 +1,4 @@
+import ExpenseGrid from 'c:/Users/Ken/Documents/Coding/chingu/voyage-51/v51-tier2-team-26/src/components/groupCard/ExpenseGrid.jsx';
 import Box from '@mui/material/Box';
 import { Typography } from '@mui/material';
 import Button from '@mui/material/Button';
@@ -8,26 +9,27 @@ export default function GroupCard() {
     const editIcon = <FontAwesomeIcon icon={faPenToSquare} />;
     
     return(
-            // /**** Group Info ****/
-            <Box display='flex' alignItems='center' 
-                sx={{ 
-                    color: 'black',
-                    backgroundColor:'white',
-                    width: 0.9,
-                    height: 150,
-                    mt: 2,
-                    p:2,
-                    boxSizing: 'border-box',
-                    border:'1px solid gray',
-                    borderRadius: 4
-                }}
-            >
+        // Parent Container  
+        <Box 
+            sx={{ 
+                color: 'black',
+                backgroundColor:'white',
+                width: 0.9,
+                height: 'auto',
+                mt: 2,
+                p:2,
+                boxSizing: 'border-box',
+                border:'1px solid gray',
+                borderRadius: 4
+            }}>
+            {/**** Group Info ****/}
+            <Box display='flex' alignItems='center'>
                 {/*** Group Image ***/}
                 <Box 
                     sx={{ 
-                        height: 115,
+                        height: 105,
                         width: 115,
-                        backgroundColor: '#0F861C',
+                        backgroundColor: '#76C57F',
                         borderRadius: 3 
                     }}
                 >
@@ -54,7 +56,7 @@ export default function GroupCard() {
                                 #004
                             </Box>
                         </Box>
-                        <Box sx={{ backgroundColor:'#76C57F', px: 1, py:1/2, borderRadius: 3, fontWeight: 'bold' }}>
+                        <Box sx={{ backgroundColor:'#FFA347', px: 1, py:1/2, borderRadius: 3, fontWeight: 'bold' }}>
                             $200
                         </Box>
                     </Box>
@@ -66,6 +68,9 @@ export default function GroupCard() {
                 </Box>
                 {/* End Group Details */}
             </Box>
-            // {/* End Group Info */}
+            {/* End Group Info */}
+            {/**** Expense Display ****/}
+            <ExpenseGrid />
+        </Box>
     )
 }
