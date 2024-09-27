@@ -8,11 +8,13 @@ export default function ExpenseDisplayCard( {expense} ) {
 
     return (
         <Grid size={3} sx={{
+            "&:hover":{border: '2px solid #fb8500'},
             my:1,
             px:2,
             py:1,
             border: '1px solid grey',
-            borderRadius: 3
+            borderRadius: 3,
+            boxShadow: '0px 2px 3px grey',
         }}>
             <Typography variant='h7' fontWeight='bold'>{expense.expenseName}</Typography>
             <Grid container>
