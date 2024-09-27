@@ -1,3 +1,4 @@
+import CategoryDisplay from './CategoryDisplay';
 import Grid from '@mui/material/Grid2';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -14,9 +15,11 @@ export default function ExpenseDisplayCard( {expense} ) {
             borderRadius: 3
         }}>
             <Typography variant='h7' fontWeight='bold'>{expense.expenseName}</Typography>
-            <Typography>
-                {categories}
-            </Typography>
+            <Grid container>
+                {categories.map((category, index) => (
+                <CategoryDisplay key={index} category={category} />
+            ))}
+            </Grid>
             <Typography variant='b1'>{expense.description}</Typography>
         </Grid>
     )
