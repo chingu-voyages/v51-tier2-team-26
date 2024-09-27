@@ -26,7 +26,7 @@ export default function ExpenseGrid() {
             <Typography sx={{ fontWeight: 'bold' }}>Group Expenses</Typography>
         </Box>
         <Divider />
-        <Grid container>
+        <Grid container spacing={1}>
             {expenses.map((expense) => (
                 <ExpenseDisplayCard key={expense.id} expense={expense} />
             ))}
