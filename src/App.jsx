@@ -3,7 +3,7 @@ import Header from './components/homepage/Header.jsx';
 import Main from './components/homepage/Main.jsx';
 import Footer from './components/homepage/Footer.jsx';
 import ExpenseForm from './components/ExpenseForm/ExpenseForm';
-import GroupCard from './components/groupcard/GroupCard.jsx';
+import GroupCard from './components/groupCard/GroupCard.jsx';
 
 import { useState } from 'react';
 

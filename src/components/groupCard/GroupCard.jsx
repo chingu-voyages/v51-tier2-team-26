@@ -1,4 +1,4 @@
-import ExpenseGrid from 'c:/Users/Ken/Documents/Coding/chingu/voyage-51/v51-tier2-team-26/src/components/groupCard/ExpenseGrid.jsx';
+import ExpenseGrid from './ExpenseGrid';
 import Box from '@mui/material/Box';
 import { Typography } from '@mui/material';
 import Button from '@mui/material/Button';
