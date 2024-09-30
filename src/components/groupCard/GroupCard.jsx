@@ -19,14 +19,13 @@ export default function GroupCard({ group, showGroupCard, setShowGroupCard }) {
                     color: 'black',
                     backgroundColor:'white',
                     width: 0.9,
-                    height: 'auto',
-                    m: 'auto',
                     p:2,
                     boxSizing: 'border-box',
                     border:'1px solid gray',
                     borderRadius: 4,
                     position: 'absolute',
-                    top: 180
+                    top: 185,
+                    boxShadow: '3px 3px 4px grey',
                 }}>
                     {/**** Group Info ****/}
                     <Box display='flex' alignItems='center'>
