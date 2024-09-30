@@ -15,7 +15,7 @@ export default function GroupCard() {
             backgroundColor:'white',
             width: 0.9,
             height: 'auto',
-            mt: 2,
+            mx: 'auto',
             p:2,
             boxSizing: 'border-box',
             border:'1px solid gray',
