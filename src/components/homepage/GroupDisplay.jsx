@@ -8,7 +8,7 @@ export default function GroupDisplay( { group }) {
     
     return(
         <Box display='flex' justifyContent='center'>
-            { showGroupCard ? <GroupCard group={group} showGroupCard={showGroupCard} setShowGroupCard={setShowGroupCard} /> : null }
+            { showGroupCard && <GroupCard group={group} showGroupCard={showGroupCard} setShowGroupCard={setShowGroupCard} /> }
             <Box display='flex' alignItems='center' onClick={() => setShowGroupCard(true)} sx={{
                 "&:hover":{border: '2px solid #fb8500'}, 
                 color: 'black', backgroundColor:'white',
