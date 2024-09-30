@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 
-export default function GroupCard() {
+export default function GroupCard({ group }) {
     const editIcon = <FontAwesomeIcon icon={faPenToSquare} />;
     
     return(
@@ -30,7 +30,7 @@ export default function GroupCard() {
                     backgroundColor: '#76C57F',
                     borderRadius: 3 
                 }}>
-                    <Typography variant='h1' sx={{ color: 'white', textAlign:'center' }}>T</Typography>
+                    <Typography variant='h1' sx={{ color: 'white', textAlign:'center' }}>{group.groupName[0]}</Typography>
                 </Box>
                 {/* End Group Image */}
                 {/*** Group Details ***/}
@@ -42,20 +42,20 @@ export default function GroupCard() {
                     <Box display='flex' justifyContent='space-between' alignItems='baseline' sx={{ mb: 1 }}>
                         <Box display='flex' alignItems='baseline'>
                             <Box>
-                                <Typography variant='h5'>Test4</Typography>
+                                <Typography variant='h5'>{group.groupName}</Typography>
                             </Box>
                             <Box sx={{ mx: 1.1 }}>
                                 <Typography sx={{ fontSize: '1.7em', color:'#0F861C' }}>{editIcon}</Typography>
                             </Box>
                             <Box sx={{ color:'gray', fontSize:'0.8em', fontStyle:'italic' }}>
-                                #004
+                                #{group.id < 10 ? '00'+group.id : '0'+group.id}
                             </Box>
                         </Box>
                         <Box sx={{ backgroundColor:'#FFA347', px: 1, py:1/2, borderRadius: 3, fontWeight: 'bold' }}>
-                            $200
+                            ${group.moneyOwed}
                         </Box>
                     </Box>
-                    <Box>Test Description</Box>
+                    <Box>{group.description}</Box>
                     <Box display='flex' justifyContent='space-between' alignItems='flex-end'>
                         <Typography variant='b2'>Nancy, Jim, Franklin, Billy, Joe</Typography>
                         <Button variant='contained' sx={{ backgroundColor:'#fb8500', textTransform:'none', fontWeight:'bold' }}>Add New Expense</Button>
