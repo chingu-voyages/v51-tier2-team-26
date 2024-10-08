@@ -1,16 +1,10 @@
 import { Box, Grid2, TableContainer, Typography,TableHead,TableCell,TableRow, TableBody, Paper, Table } from '@mui/material'
-import receipt from '../img/receipt.png'
-import { useParams, useLoaderData } from 'react-router-dom'
 
-export default function ExpenseDetail() {
-  const { testData } = useLoaderData()
+export default function ExpenseDetail({data}) {
 
   function getName(acc, name){
     return acc + name + ', '
   }
-
-  const { id } = useParams()
-  const data = testData.find( group => group.id == parseInt(id))
 
   return (
     <Box sx={{ flexGrow: 1, textAlign: 'start', p: 2, backgroundColor:'white' }} >
