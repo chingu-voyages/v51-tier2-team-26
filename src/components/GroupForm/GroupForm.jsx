@@ -1,10 +1,11 @@
-import { Button, LinearProgress, List, ListItem, ListItemText, } from '@mui/material';
+import { Button, LinearProgress } from '@mui/material';
 import { Box } from '@mui/system';
-import { Formik, Form, Field, FieldArray } from 'formik';
+import { Formik, Form, Field, FieldArray, validateYupSchema, yupToFormErrors } from 'formik';
 import { TextField,  } from 'formik-mui';
 import { useContext } from 'react';
 import { DataContext } from '../../context/Context';
-import { object, string, number } from 'yup';
+import { object, string, number, array } from 'yup';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export default function GroupForm() {
     const style = { padding: '0.5rem 1rem' }
@@ -14,7 +15,7 @@ export default function GroupForm() {
 
     //will throw errors based on wheater or not this schema is true or not
     let groupSchema = object({
-      name: string().required().test({
+      name: string().required("Group name is required").test({
         name: 'isUniqueGroupName',
         message: "Group name was taken already!",
         test: (value) => {
@@ -23,32 +24,43 @@ export default function GroupForm() {
           return true
         }
       }),
+      newMember: string(),
       description: string().required(),
-      budget: number().required().positive().integer(),
-      members: yup.array().of(yup.string()).test({
-        name: 'isUniqueName',
-        message: "Member already exist.",
+      budget: number().required("Budget amount is required").positive().integer(),
+      members: array().of(string().required("Name is required")).test({
+        name: 'notEmpty',
+        message: "You must include at least 1 member.",
         test: ( value ) => {
-          return !value.find( arrName => arrName == this.parent.name)
+          return !value.length == 0
         }
       })
+      
     });
 
     return (
         <Formik
           initialValues={{
             name: '',
+            newMember: '',
             description: '',
             budget: '',
             members: [],
           }}
           context={data}
-          validationSchema={ groupSchema }
+          validate={ (value) => {
+            try {
+              validateYupSchema(value, groupSchema, true, value)
+            } catch( err){
+              return yupToFormErrors(err)
+            }
+            return {}
+          }}
           onSubmit={(values, { setSubmitting }) => {
+            console.log("Submited: ", values)
             setSubmitting(false)
           }}
         >
-          {({ submitForm, isSubmitting, values }) => (
+          {({ submitForm, isSubmitting, values, setFieldValue, errors, touched, setErrors, setFieldError,setTouched }) => (
             <Form sx={flex}>
               <Box sx={style}>
                 <Field
@@ -65,7 +77,7 @@ export default function GroupForm() {
                   name="description"
                   type="text"
                   label="Group Description"
-                />
+                />render
               </Box>
               <Box sx={style}>
                 <Field
@@ -77,47 +89,69 @@ export default function GroupForm() {
                 />
               </Box>
               <Box sx={style}>
-              <FieldArray
-                name="members"
-                render={arrayHelpers => (
-                  <Box>
-                    {values.members && values.members.length > 0 ? (
-                      values.members.map((arrName, index) => (
-                        <div key={index}>
-                          <Field  name={`arrName.${index}`} />
-                          <button
-                            type="button"
-                            onClick={() => arrayHelpers.remove(index)} // remove a friend from the list
-                          >
-                            -
-                          </button>
-                          <button
-                            type="button"
-                            onClick={() => arrayHelpers.insert(index, '')} // insert an empty string at a position
-                          >
-                            +
-                          </button>
-                        </div>
-                      ))
-                    ) : (
-                      <button type="button" onClick={() => arrayHelpers.push('')}>
-                        {/* show this when user has removed all friends from the list */}
-                        Add a friend
-                      </button>
-                    )}
-                    <div>
-                      <button type="submit">Submit</button>
-                    </div>
-                  </Box>
-                )}
-                />
-                <Button> + Member </Button>
+                <FieldArray name="members">
+                  { arrayHelpers => {
+                      const members = values.members
+                      console.log("errors", errors)
+                      return (
+                        <Box>
+                          { members && members.length > 0
+                              ? members.map(( member, index ) => (
+                                <Box key={index}>
+                                  <Box
+                                    name={`members.${index}`}
+                                    sx={{ color: 'black' }}
+                                  >
+                                    {member}
+                                  </Box>
+                                  <Button 
+                                    variant="outlined" 
+                                    startIcon={<DeleteIcon />}
+                                    onClick={() => arrayHelpers.remove(index)}
+                                  >
+                                    Delete
+                                  </Button>
+                                </Box>))
+                              : null
+                          }
+                          <Box>
+                           
+                            <Field
+                              component={TextField}
+                              id="newMember"
+                              name="newMember"
+                              label="New Member"
+                              
+                              error={touched.members && Boolean(errors.members)}
+                              helperText={touched.members && errors.members}
+                            />
+                            <Button 
+                              variant="outlined" 
+                              onClick={(obj) => {
+                              
+                                if(values.newMember.length == 0){
+                                  console.log('adding ', values.newMember)
+                                  setFieldError('members', 'Cannot add empty name')
+                                }
+                                else if(values.members.includes( values.newMember)){
+                                  setFieldError('members', `${values.newMember} has been added already.`)
+                                }
+                                else{
+                                  console.log('adding ', values.newMember)
+                                  arrayHelpers.push(values.newMember)
+                                  setFieldValue('newMember', '')
+                                }
+                              }}
+                            >
+                              Add Name
+                            </Button>
+                          </Box>
+                        </Box>
+                      )
+                  }}
+                </FieldArray>
               </Box>
-              <Box>
-                <List>
-                  {console.log(values)}
-                </List>
-              </Box>
+              
               {isSubmitting && <LinearProgress />}
               <Box sx={style}>
                 <Button
