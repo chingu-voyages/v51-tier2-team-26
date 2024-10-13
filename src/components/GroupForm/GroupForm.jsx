@@ -7,11 +7,10 @@ import { DataContext } from '../../context/Context';
 import { object, string, number, array } from 'yup';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-export default function GroupForm() {
+export default function GroupForm({closeForm}) {
     const style = { padding: '0.5rem 1rem' }
     const flex = { display: 'flex', justifyContent: "center"}
-
-    const { data } = useContext(DataContext)
+    const { data, updateState } = useContext(DataContext)
 
     //will throw errors based on wheater or not this schema is true or not
     let groupSchema = object({
@@ -43,7 +42,7 @@ export default function GroupForm() {
             name: '',
             newMember: '',
             description: '',
-            budget: '',
+            budget: 0,
             members: [],
           }}
           context={data}
@@ -56,7 +55,11 @@ export default function GroupForm() {
             return {}
           }}
           onSubmit={(values, { setSubmitting }) => {
-            console.log("Submited: ", values)
+            const valuesCopy = {...values}
+            delete valuesCopy.newMember
+            updateState(valuesCopy, 'add_group')
+            closeForm()
+
             setSubmitting(false)
           }}
         >
